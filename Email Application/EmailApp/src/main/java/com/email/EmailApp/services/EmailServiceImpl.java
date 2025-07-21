@@ -63,6 +63,8 @@ public class EmailServiceImpl implements EmailService {
             helper.setSubject(subject);
             helper.setFrom("k.manjunath1518@gmail.com");
             helper.setText(htmlContent, true);
+
+            mailSender.send(simpleMailMessage);
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
