@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.DataInput;
 import java.io.IOException;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/email")
 public class EmailController {
