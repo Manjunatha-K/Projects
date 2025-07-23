@@ -51,9 +51,9 @@ function EmailSender() {
 
   return (
     <div className="w-full min-h-screen flex justify-center items-center">
-      <div className="email_card md:w-1/3 w-full  mx-4 md:mx-0 -mt-10 bg-white rounded-lg p-4 rounded border shadow">
-        <h1 className="text-gray-900 text-3xl">Email Sender</h1>
-        <p className=" text-gray-700">
+      <div className="email_card md:w-1/3 w-full  mx-4 md:mx-0 -mt-10 bg-white dark:bg-gray-700 dark:text-white dark:border-none rounded-lg p-4 rounded border shadow">
+        <h1 className="text-gray-900 dark:text-gray-200 text-3xl">Email Sender</h1>
+        <p className=" text-gray-700 dark:text-gray-300">
           Send email to your favorite person with your phone app ...
         </p>
         <form action="" onSubmit={handleSubmit}>
@@ -137,7 +137,7 @@ function EmailSender() {
             >
               Send Email
             </button>
-            <button className="hover:bg-gray-900 text-white bg-gray-700 px-3 py-2 rounded">
+            <button className="hover:bg-gray-900  text-white bg-gray-500 px-3 py-2 rounded">
               Clear
             </button>
           </div>
