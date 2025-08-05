@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 public class UserRole {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userRoleId;
