@@ -1,1 +1,58 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img
+              style="width: 200px"
+              src="../../../assets/logo.png"
+              alt="Exam portal Logo"
+            />
+          </div>
+
+          <h1 class="text-center">Login Here !!</h1>
+          <form class="ml10 mr10 mt20">
+            <!--username field-->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>User Name</mat-label>
+              <input
+                required
+                name="username"
+                matInput
+                placeholder="Enter here"
+              />
+              <mat-hint>Valid user Name</mat-hint>
+            </mat-form-field>
+
+            <!--password field-->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>User Password</mat-label>
+              <input
+                required
+                name="password"
+                type="password"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+            <div class="container text-center mb20">
+              <button mat-raised-button color="primary" type="submit">
+                Login
+              </button>
+              <button
+                class="ml10"
+                mat-raised-button
+                color="accent"
+                type="submit"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
