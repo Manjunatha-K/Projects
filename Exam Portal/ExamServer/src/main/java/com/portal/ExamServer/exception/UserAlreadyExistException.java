@@ -1,15 +1,24 @@
 package com.portal.ExamServer.exception;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
+
 public class UserAlreadyExistException extends RuntimeException{
     String message;
 
+    public UserAlreadyExistException(String message) {
+        super(message);
+    this.message = message;
+    }
+
+    public UserAlreadyExistException() {
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
