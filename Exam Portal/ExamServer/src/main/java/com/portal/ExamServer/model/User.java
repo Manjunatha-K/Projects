@@ -17,7 +17,7 @@ import java.util.Set;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;
@@ -136,7 +136,7 @@ public class User implements UserDetails {
         this.userRoles.forEach(userRole ->{
             set.add(new Authority(userRole.getRole().getRoleName()));
         });
-        return List.of();
+        return set;
     }
 
     @Override

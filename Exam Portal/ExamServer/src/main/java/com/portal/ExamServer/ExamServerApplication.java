@@ -27,10 +27,10 @@ public class ExamServerApplication implements CommandLineRunner {
 		System.out.println("Starting code");
 
 		/*User user = new User();
-		user.setFirstName("Manjunatha");
-		user.setLastName("K");
-		user.setUsername("manju");
-		user.setEmail("k.manjunatha1518@gmail.com");
+		user.setFirstName("Gopal");
+		user.setLastName("Reddy");
+		user.setUsername("Gopal");
+		user.setEmail("k.gopal1518@gmail.com");
 		user.setPassword("12345");
 		user.setPhone("9000000000");
 		user.setProfile("default.png");

@@ -4,11 +4,11 @@ package com.portal.ExamServer.model;
 import javax.persistence.*;
 
 
-@Entity
+@Entity(name="user_role")
 public class UserRole {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userRoleId;
 
     @ManyToOne(fetch = FetchType.EAGER)
