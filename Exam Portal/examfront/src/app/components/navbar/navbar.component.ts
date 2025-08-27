@@ -7,11 +7,12 @@ import { LoginService } from '../../services/login.service';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent{
 constructor(public login:LoginService){}
 
+public logout(){
+  this.login.logout();
+  window.location.reload();
+}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
-  constructor(private snack: MatSnackBar, private login: LoginService) {}
+  constructor(private snack: MatSnackBar, private login: LoginService,private router:Router) {}
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
@@ -59,10 +60,12 @@ export class LoginComponent implements OnInit {
             //redirect ...Normal: normal dashboard
             if(this.login.getUserRole() == "ADMIN"){
               //admin dashboard
-              window.location.href="/admin";
+              //window.location.href="/admin";
+              this.router.navigate(['admin']);
             }else if(this.login.getUserRole() == "NORMAL"){
               //normal user dashboard
-              window.location.href="/user-dashboard";
+              //window.location.href="/user-dashboard";
+              this.router.navigate(['user-dashboard']);
             }else{
               this.login.logout();
             }
