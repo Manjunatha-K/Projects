@@ -14,10 +14,9 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin("*")
@@ -55,9 +54,16 @@ public class AuthenticateController {
         try{
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username,password));
         }catch(DisabledException e){
-            throw new Exception("USER DESABLED"+e.getMessage());
+            throw new Exception("USER DESABLED "+e.getMessage());
         }catch(BadCredentialsException e){
-            throw new Exception("INVALID CREDENTIALS"+e.getMessage());
+            throw new Exception("INVALID CREDENTIALS "+e.getMessage());
         }
+    }
+
+
+    //returns the details of current user
+    @GetMapping("/current-user")
+    public User getCurrentUser(Principal principal){
+       return (User) this.userDetailsService.loadUserByUsername(principal.getName());
     }
 }
