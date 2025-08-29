@@ -1,26 +1,32 @@
-import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
+import {
+  NgModule,
+  provideBrowserGlobalErrorListeners,
+  provideZonelessChangeDetection,
+} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HomeComponent } from './pages/home/home.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -32,27 +38,30 @@ import {MatCardModule} from '@angular/material/card';
     HomeComponent,
     DashboardComponent,
     UserDashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    SidebarComponent,
+    DashboardComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    RouterModule,
+    BrowserModule,
+    MatCardModule,
+    MatSnackBarModule,
     MatButtonModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     FormsModule,
     HttpClientModule,
-    MatSnackBarModule,
-    MatToolbarModule,
     MatIconModule,
+    MatToolbarModule,
     MatListModule,
-    MatCardModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    authInterceptorProviders
+    authInterceptorProviders,
   ],
-  bootstrap: [App]
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}
