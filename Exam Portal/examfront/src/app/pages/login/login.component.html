@@ -12,13 +12,16 @@
           </div>
 
           <h1 class="text-center">Login Here !!</h1>
-          <form class="ml10 mr10 mt20">
+          <form (ngSubmit)="formSubmit()" class="ml10 mr10 mt20">
+            <!-- {{loginData | json}} -->
             <!--username field-->
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>User Name</mat-label>
               <input
                 required
                 name="username"
+                type = "text"
+                [(ngModel)] ="loginData.username"
                 matInput
                 placeholder="Enter here"
               />
@@ -30,6 +33,7 @@
               <mat-label>User Password</mat-label>
               <input
                 required
+                [(ngModel)] ="loginData.password"
                 name="password"
                 type="password"
                 matInput

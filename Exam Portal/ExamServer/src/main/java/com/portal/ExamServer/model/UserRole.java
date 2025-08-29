@@ -1,20 +1,14 @@
 package com.portal.ExamServer.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@Entity
+import javax.persistence.*;
+
+
+@Entity(name="user_role")
 public class UserRole {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userRoleId;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -23,4 +17,36 @@ public class UserRole {
     @ManyToOne
     private Role role;
 
+    public UserRole() {
+    }
+
+    public UserRole(Long userRoleId, User user, Role role) {
+        this.userRoleId = userRoleId;
+        this.user = user;
+        this.role = role;
+    }
+
+    public Long getUserRoleId() {
+        return userRoleId;
+    }
+
+    public void setUserRoleId(Long userRoleId) {
+        this.userRoleId = userRoleId;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 }
