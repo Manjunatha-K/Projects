@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginData = {
     username: '',
     password: '',
@@ -17,9 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private snack: MatSnackBar, private login: LoginService,private router:Router) {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+
 
   formSubmit() {
     console.log('Login button clicked');
