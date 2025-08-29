@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatList } from '@angular/material/list';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
+constructor(){
 
+}
 }
