@@ -1,21 +1,15 @@
 package com.portal.ExamServer.exception;
 
 public class UserDoesNotExistsException extends RuntimeException{
-    String message;
 
     public UserDoesNotExistsException(String message) {
-        this.message = message;
+
+        super(message);
     }
 
     public UserDoesNotExistsException() {
+        super("User not Found!!");
     }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

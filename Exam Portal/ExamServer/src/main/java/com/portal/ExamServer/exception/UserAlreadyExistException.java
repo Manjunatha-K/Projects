@@ -3,22 +3,16 @@ package com.portal.ExamServer.exception;
 
 
 public class UserAlreadyExistException extends RuntimeException{
-    String message;
+
+
+    public UserAlreadyExistException() {
+        super("User Already Exists !! Try with different Username");
+
+    }
 
     public UserAlreadyExistException(String message) {
         super(message);
-    this.message = message;
     }
 
-    public UserAlreadyExistException() {
-    }
 
-    @Override
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }
