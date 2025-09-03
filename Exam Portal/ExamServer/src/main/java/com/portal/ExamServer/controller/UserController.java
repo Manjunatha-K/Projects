@@ -1,10 +1,14 @@
 package com.portal.ExamServer.controller;
 
+import com.portal.ExamServer.exception.UserAlreadyExistException;
+import com.portal.ExamServer.exception.UserDoesNotExistsException;
 import com.portal.ExamServer.model.Role;
 import com.portal.ExamServer.model.User;
 import com.portal.ExamServer.model.UserRole;
 import com.portal.ExamServer.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
