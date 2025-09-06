@@ -6,10 +6,11 @@ import com.portal.ExamServer.repo.QuestionRepository;
 import com.portal.ExamServer.service.QuestionService;
 import com.portal.ExamServer.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class QuestionServiceImpl implements QuestionService {
 
     @Autowired

@@ -13,7 +13,7 @@ public interface QuestionService {
 
     public Question getQuestion(Long questionId);
 
-    public Set<QuizService> getQuestions();
+    public Set<Question> getQuestions();
 
     public void deleteQuestion(Long questionId);
 
