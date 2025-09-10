@@ -96,4 +96,12 @@ public class Quiz {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public Set<Question> getListOfQuestions() {
+        return listOfQuestions;
+    }
+
+    public void setListOfQuestions(Set<Question> listOfQuestions) {
+        this.listOfQuestions = listOfQuestions;
+    }
 }
