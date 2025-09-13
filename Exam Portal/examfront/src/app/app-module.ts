@@ -28,6 +28,9 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,9 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     ProfileComponent,
     SidebarComponent,
     DashboardComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent
   ],
   imports: [
     AppRoutingModule,
@@ -58,6 +63,8 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatDividerModule,
+  
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
