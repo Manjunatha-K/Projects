@@ -9,6 +9,10 @@ import { AdminGuard } from './services/admin-guard';
 import { NormalGuard } from './services/normal-guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 
 const routes: Routes = [
   {
@@ -39,6 +43,23 @@ const routes: Routes = [
         path:'profile',
         component: ProfileComponent,
       },
+      {
+        path:'categories',
+        component: ViewCategoriesComponent,
+      },
+      {
+        path : 'add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path : 'quizzes',
+        component : ViewQuizzesComponent,
+      },
+      {
+        path : 'add-quiz',
+        component : AddQuizComponent
+      }
+
     ],
   },
   {

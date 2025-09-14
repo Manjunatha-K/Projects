@@ -28,6 +28,13 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -42,7 +49,11 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     ProfileComponent,
     SidebarComponent,
     DashboardComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent,
+    ViewQuizzesComponent,
+    AddQuizComponent
   ],
   imports: [
     AppRoutingModule,
@@ -58,6 +69,9 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatDividerModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
