@@ -3,14 +3,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <form>
+        <form (ngSubmit)="addQuiz()">
           <mat-form-field class="w100" appearance="fill">
             <mat-label>Enter Title</mat-label>
-            <input type="text" name="title" placeholder="Enter Here" matInput />
+            <input [(ngModel)]="quizData.title" required="true"
+            type="text" name="title" placeholder="Enter Here" matInput />
           </mat-form-field>
           <mat-form-field class="w100" appearance="fill">
             <mat-label>Enter Description</mat-label>
-            <textarea
+            <textarea [(ngModel)]="quizData.description"
               type="text"
               name="description"
               placeholder="Enter Here"
@@ -23,6 +24,7 @@
               <mat-form-field class="w100" appearance="fill">
                 <mat-label>Enter Maximum Marks</mat-label>
                 <input
+                [(ngModel)]="quizData.maxMarks"
                   type="text"
                   name="maxMarks"
                   placeholder="Enter Here"
@@ -34,6 +36,7 @@
               <mat-form-field class="w100" appearance="fill">
                 <mat-label>Number Of Questions</mat-label>
                 <input
+                [(ngModel)]="quizData.noOfQuestions"
                   type="text"
                   name="noOfQuestions"
                   placeholder="Enter Here"
@@ -44,17 +47,18 @@
           </div>
           <section class="example-section">
             <mat-slide-toggle
+            name ="active"
+            [(ngModel)]="quizData.active"
               class="example-margin mt10 mb10"
               color="primary"
-              [checked]="false"
             >
               Publish Status
             </mat-slide-toggle>
           </section>
 
-          <mat-form-field appearance="fill" calss="mt10">
+          <mat-form-field appearance="fill" class="mt10 w100">
             <mat-label>Choose an option</mat-label>
-            <mat-select name="category">
+            <mat-select name="category" [(ngModel)]="quizData.category.cId">
               <mat-option *ngFor="let c of categories" [value]="c.cId">
                 {{
                 c.title
@@ -69,3 +73,5 @@
     </div>
   </div>
 </mat-card>
+
+{{quizData | json}}
