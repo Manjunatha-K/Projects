@@ -9,8 +9,9 @@ import Swal from 'sweetalert2';
   styleUrl: './view-quizzes.component.css',
 })
 export class ViewQuizzesComponent implements OnInit {
-  constructor(private _quiz : QuizService) {}
-  quizzes:any = [
+qId: any;
+  constructor(private _quiz: QuizService) {}
+  quizzes: any = [
     // {
     //   qId: 23,
     //   title: 'Basic of Java',
@@ -36,13 +37,35 @@ export class ViewQuizzesComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-this._quiz.quizzes().subscribe((data:any)=>{
-this.quizzes = data;
-console.log(this.quizzes);
-},
-(error)=>{
-Swal.fire("Error !!","Error in Loading Data",'error');
-}
-)
+    this._quiz.quizzes().subscribe(
+      (data: any) => {
+        this.quizzes = data;
+        console.log(this.quizzes);
+      },
+      (error) => {
+        Swal.fire('Error !!', 'Error in Loading Data', 'error');
+      }
+    );
+  }
+
+  deleteQuiz(qId: any) {
+    Swal.fire({
+      icon: 'info',
+      title: 'are you sure ?',
+      text: 'Delete',
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._quiz.deleteQuiz(qId).subscribe(
+          (data) => {
+            this.quizzes = this.quizzes.filter((quiz: any) => quiz.qId != qId);
+            Swal.fire('Success !!', 'Quiz Deleted', 'success');
+          },
+          (error) => {
+            Swal.fire('Error', 'Error in Deling Quiz', 'error');
+          }
+        );
+      }
+    });
   }
 }

@@ -17,8 +17,9 @@
     <button mat-stroked-button color="primary" class="ml20">
       Questions : {{ q.noOfQuestions }}
     </button>
-    <button mat-flat-button color="primary" class="ml20">Update</button>
+    <button [routerLink]="'/admin/quiz/'+q.qId" mat-flat-button color="primary" class="ml20">Update</button>
     <button mat-flat-button color="primary" class="ml20">Attempts</button>
+    <button mat-flat-button color="warn" class="ml20" (click)="deleteQuiz(q.qId)">Delete</button>
   </mat-card-actions>
 </mat-card>
 <div class="container text-center mt20">
