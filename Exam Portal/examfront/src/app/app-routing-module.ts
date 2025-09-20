@@ -15,73 +15,78 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 
 const routes: Routes = [
   {
-    path : '',
+    path: '',
     component: HomeComponent,
-    pathMatch:'full'
+    pathMatch: 'full',
   },
   {
-    path:'signup',
+    path: 'signup',
     component: SignupComponent,
     pathMatch: 'full',
   },
   {
-    path : 'login',
+    path: 'login',
     component: LoginComponent,
-    pathMatch:'full'
+    pathMatch: 'full',
   },
   {
-    path:'admin',
+    path: 'admin',
     component: DashboardComponent,
-    canActivate:[AdminGuard],
-    children :[
+    canActivate: [AdminGuard],
+    children: [
       {
-        path :'',
-        component : WelcomeComponent
+        path: '',
+        component: WelcomeComponent,
       },
       {
-        path:'profile',
+        path: 'profile',
         component: ProfileComponent,
       },
       {
-        path:'categories',
+        path: 'categories',
         component: ViewCategoriesComponent,
       },
       {
-        path : 'add-category',
+        path: 'add-category',
         component: AddCategoryComponent,
       },
       {
-        path : 'quizzes',
-        component : ViewQuizzesComponent,
+        path: 'quizzes',
+        component: ViewQuizzesComponent,
       },
       {
-        path : 'add-quiz',
-        component : AddQuizComponent
+        path: 'add-quiz',
+        component: AddQuizComponent,
       },
       {
-        path : 'quiz/:qId',
-        component : UpdateQuizComponent,
+        path: 'quiz/:qId',
+        component: UpdateQuizComponent,
       },
       {
-        path : 'view-questions/:qId/:title',
-        component :ViewQuizQuestionsComponent,
-      }
+        path: 'view-questions/:qId/:title',
+        component: ViewQuizQuestionsComponent,
+      },
 
+      {
+        path: 'add-question/:qId/:qTitle',
+        component: AddQuestionComponent,
+      },
     ],
   },
   {
-    path : 'user-dashboard',
+    path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch : 'full',
-    canActivate:[NormalGuard],
-  }
+    pathMatch: 'full',
+    canActivate: [NormalGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
