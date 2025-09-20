@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../../../services/question';
 import Swal from 'sweetalert2';
@@ -13,7 +13,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
   qId: any;
   qTitle: any;
   questions: any = null;
-  constructor(private _route: ActivatedRoute, private _question: Question) {}
+  constructor(private _route: ActivatedRoute, private _question: Question, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params['qId'];
@@ -22,6 +22,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
       (data) => {
         console.log(data);
         this.questions = data;
+         this.cdr.detectChanges();
       },
       (error) => {
         Swal.fire('Error !!', 'Error adding questions', 'error');

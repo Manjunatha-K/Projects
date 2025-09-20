@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
   styleUrl: './view-quizzes.component.css',
 })
 export class ViewQuizzesComponent implements OnInit {
-qId: any;
-  constructor(private _quiz: QuizService) {}
+  qId: any;
+  constructor(private _quiz: QuizService, private cdr: ChangeDetectorRef) {}
   quizzes: any = [
     // {
     //   qId: 23,
@@ -41,6 +41,7 @@ qId: any;
       (data: any) => {
         this.quizzes = data;
         console.log(this.quizzes);
+        this.cdr.detectChanges();
       },
       (error) => {
         Swal.fire('Error !!', 'Error in Loading Data', 'error');
