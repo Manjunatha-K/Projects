@@ -34,8 +34,7 @@ public class QuestionController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<?> questions(){
-        return ResponseEntity.ok(this.questionService.getQuestions());
+    public ResponseEntity<?> questions(){ return ResponseEntity.ok(this.questionService.getQuestions());
     }
 
     @GetMapping("/{questionId}")
@@ -64,6 +63,17 @@ public class QuestionController {
         }
         Collections.shuffle(list);
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/quiz/all/{quizId}")
+    public ResponseEntity<?> getQuestionsOfQuizAdmin(@PathVariable("quizId") Long quizId){
+
+
+        Quiz quiz = new Quiz();
+        quiz.setqId(quizId);
+        Set<Question> questions = this.questionService.getQuestionsOfQuiz(quiz);
+        return ResponseEntity.ok(questions);
+
     }
 
 }
