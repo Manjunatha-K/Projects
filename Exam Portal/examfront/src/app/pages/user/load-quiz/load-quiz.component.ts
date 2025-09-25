@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuizService } from '../../../services/quiz.service';
 
@@ -13,7 +13,8 @@ export class LoadQuizComponent implements OnInit {
   quizzes: any;
   constructor(
     private _route: ActivatedRoute,
-    private quizService: QuizService
+    private quizService: QuizService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -21,10 +22,11 @@ export class LoadQuizComponent implements OnInit {
       this.catId = params['catId'];
       if (this.catId == 0) {
         console.log('Load all quizzes');
-        this.quizService.quizzes().subscribe(
+        this.quizService.getActiveQuizzes().subscribe(
           (data: any) => {
             this.quizzes = data;
             console.log(this.quizzes);
+            this.cdr.detectChanges();
           },
           (error) => {
             console.log(error);
@@ -33,9 +35,10 @@ export class LoadQuizComponent implements OnInit {
         );
       } else {
         console.log('Load specific quizzes');
-        this.quizService.getQuizzesOfCategory(this.catId).subscribe(
+        this.quizService.getActiveQuizzesOfCategory(this.catId).subscribe(
           (data: any) => {
             this.quizzes = data;
+            this.cdr.detectChanges();
           },
           (error: any) => {
             alert('error in loading data related to categories');

@@ -10,12 +10,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SidebarComponent implements OnInit {
   categories: any;
-  constructor(private _cat: CategoryService, private _snack: MatSnackBar,private cdr: ChangeDetectorRef) {}
+  constructor(
+    private _cat: CategoryService,
+    private _snack: MatSnackBar,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this._cat.categories().subscribe(
       (data: any) => {
         this.categories = data;
+        this.cdr.detectChanges();
       },
       (error: any) => {
         console.log(error);
@@ -24,6 +29,5 @@ export class SidebarComponent implements OnInit {
         });
       }
     );
-    this.cdr.detectChanges();
   }
 }
