@@ -17,22 +17,31 @@ export class LoadQuizComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.catId = this._route.snapshot.params['catId'];
-    console.log(this.catId);
-    if (this.catId == 0) {
-      console.log('Load all quizzes');
-      this.quizService.quizzes().subscribe(
-        (data: any) => {
-          this.quizzes = data;
-          console.log(this.quizzes);
-        },
-        (error) => {
-          console.log(error);
-          alert('error in loading all quizzes');
-        }
-      );
-    } else {
-      console.log('Load specific quizzes');
-    }
+    this._route.params.subscribe((params) => {
+      this.catId = params['catId'];
+      if (this.catId == 0) {
+        console.log('Load all quizzes');
+        this.quizService.quizzes().subscribe(
+          (data: any) => {
+            this.quizzes = data;
+            console.log(this.quizzes);
+          },
+          (error) => {
+            console.log(error);
+            alert('error in loading all quizzes');
+          }
+        );
+      } else {
+        console.log('Load specific quizzes');
+        this.quizService.getQuizzesOfCategory(this.catId).subscribe(
+          (data: any) => {
+            this.quizzes = data;
+          },
+          (error: any) => {
+            alert('error in loading data related to categories');
+          }
+        );
+      }
+    });
   }
 }
