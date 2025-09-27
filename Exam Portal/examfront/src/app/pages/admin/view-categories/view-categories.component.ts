@@ -1,5 +1,5 @@
 import { V } from '@angular/cdk/keycodes';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
 import Swal from 'sweetalert2';
 
@@ -16,13 +16,14 @@ export class ViewCategoriesComponent implements OnInit {
     description:"",
   };
 
-  constructor(private _category: CategoryService) {}
+  constructor(private _category: CategoryService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this._category.categories().subscribe(
       (data: any) => {
         this.categories = data;
         console.log(data);
+          this.cdr.detectChanges();
       },
       (error: any) => {
         console.log(error);
