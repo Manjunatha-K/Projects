@@ -18,6 +18,8 @@ export class StartComponent implements OnInit {
   marksGot: any = 0;
   correctAnswers = 0;
   attempted = 0;
+  isSubmit = false;
+  timer: any;
 
   constructor(
     private locationSt: LocationStrategy,
@@ -45,11 +47,13 @@ export class StartComponent implements OnInit {
     this.questionService.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data) => {
         this.questions = data;
-        this.cdr.detectChanges();
+        this.timer = 2 * 60 * this.questions.length; // 2 minutes per question
         this.questions.forEach((q: any) => {
           q['givenAnswer'] = '';
         });
         console.log(data);
+        this.startTimer();
+        this.cdr.detectChanges();
       },
       (error) => {
         console.log(error);
@@ -58,26 +62,54 @@ export class StartComponent implements OnInit {
     );
   }
 
-  submitQuiz(){
+  submitQuiz() {
     Swal.fire({
       title: 'Do you want to submit the quiz ?',
       showCancelButton: true,
       confirmButtonText: 'Submit',
       denyButtonText: "Don't Save",
       icon: 'info',
-    }).then((e)=>{
-      if(e.isConfirmed){
-        //calculation
-      this.questions.forEach((q:any)=>{
-        if(q.givenAnswer == q.answer){
-          this.correctAnswers++;
-        let marksSingle =   this.questions[0].quiz.maxMarks/this.questions.length;
-        this.marksGot+=marksSingle;
-        }
-        console.log("CORRECT ANSWERS :"+this.correctAnswers);
-         console.log("MARKS GOT :"+this.marksGot);
-      })
+    }).then((e) => {
+      if (e.isConfirmed) {
+        this.evalQuiz();
       }
-    })
+    });
+  }
+
+  startTimer() {
+    let t = window.setInterval(() => {
+      if (this.timer <= 0) {
+        this.evalQuiz();
+        clearInterval(t);
+      } else {
+        this.timer--;
+        this.cdr.detectChanges();
+      }
+    }, 1000);
+  }
+
+  getFormattedTime() {
+    let mm = Math.floor(this.timer / 60);
+    let ss = this.timer - mm * 60;
+    return `${mm} min : ${ss} sec`;
+    this.cdr.detectChanges();
+  }
+
+  evalQuiz(){
+    this.isSubmit = true;
+        //calculation
+        this.questions.forEach((q: any) => {
+          if (q.givenAnswer == q.answer) {
+            this.correctAnswers++;
+            let marksSingle =
+              this.questions[0].quiz.maxMarks / this.questions.length;
+            this.marksGot += marksSingle;
+          }
+          if (q.givenAnswer.trim() != '') {
+            this.attempted++;
+          }
+          console.log(this.attempted);
+        });
+        this.cdr.detectChanges();
   }
 }
