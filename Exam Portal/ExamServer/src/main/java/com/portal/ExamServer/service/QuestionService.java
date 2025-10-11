@@ -19,4 +19,5 @@ public interface QuestionService {
 
     public Set<Question> getQuestionsOfQuiz(Quiz Quiz);
 
+
 }

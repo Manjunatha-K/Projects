@@ -48,9 +48,9 @@ export class StartComponent implements OnInit {
       (data) => {
         this.questions = data;
         this.timer = 2 * 60 * this.questions.length; // 2 minutes per question
-        this.questions.forEach((q: any) => {
-          q['givenAnswer'] = '';
-        });
+        // this.questions.forEach((q: any) => {
+        //   q['givenAnswer'] = '';
+        // });
         console.log(data);
         this.startTimer();
         this.cdr.detectChanges();
@@ -95,21 +95,37 @@ export class StartComponent implements OnInit {
     this.cdr.detectChanges();
   }
 
-  evalQuiz(){
-    this.isSubmit = true;
-        //calculation
-        this.questions.forEach((q: any) => {
-          if (q.givenAnswer == q.answer) {
-            this.correctAnswers++;
-            let marksSingle =
-              this.questions[0].quiz.maxMarks / this.questions.length;
-            this.marksGot += marksSingle;
-          }
-          if (q.givenAnswer.trim() != '') {
-            this.attempted++;
-          }
-          console.log(this.attempted);
-        });
-        this.cdr.detectChanges();
+  evalQuiz() {
+    this.questionService.evalQuiz(this.questions).subscribe(
+      (data:any) => {
+        console.log(data);
+        this.marksGot = data.marksGot;
+        this.attempted = data.attempted;
+        this.correctAnswers = data.correctAnswers;
+        this.isSubmit = true;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    // this.isSubmit = true;
+    //     //calculation
+    //     this.questions.forEach((q: any) => {
+    //       if (q.givenAnswer == q.answer) {
+    //         this.correctAnswers++;
+    //         let marksSingle =
+    //           this.questions[0].quiz.maxMarks / this.questions.length;
+    //         this.marksGot += marksSingle;
+    //       }
+    //       if (q.givenAnswer.trim() != '') {
+    //         this.attempted++;
+    //       }
+    //       console.log(this.attempted);
+    //     });
+    this.cdr.detectChanges();
+  }
+
+  printPage(){
+    window.print();
   }
 }
