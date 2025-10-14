@@ -47,4 +47,6 @@ public class QuestionServiceImpl implements QuestionService {
     public Set<Question> getQuestionsOfQuiz(Quiz quiz) {
         return this.questionRepository.findByQuiz(quiz);
     }
+
+
 }

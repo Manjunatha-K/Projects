@@ -44,6 +44,7 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { StartComponent } from './pages/user/start/start.component';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 @NgModule({
@@ -89,7 +90,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDividerModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true
+    }),
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
