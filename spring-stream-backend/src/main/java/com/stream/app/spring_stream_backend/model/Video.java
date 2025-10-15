@@ -14,7 +14,7 @@ public class Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String videoId;
+    private Long videoId;
 
     private String title;
 
