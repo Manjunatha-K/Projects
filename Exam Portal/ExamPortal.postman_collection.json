@@ -1,0 +1,600 @@
+{
+	"info": {
+		"_postman_id": "a97f1c4f-6f4f-47b2-9dd8-6fc19665646c",
+		"name": "ExamPortal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44585995",
+		"_collection_link": "https://solar-resonance-420447.postman.co/workspace/k.manjunatha1518%40gmail.com's-Wo~5caba2a7-68fa-4443-857b-dd543426549f/collection/44585995-a97f1c4f-6f4f-47b2-9dd8-6fc19665646c?action=share&source=collection_link&creator=44585995"
+	},
+	"item": [
+		{
+			"name": "Categories API",
+			"item": [
+				{
+					"name": "Get category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MDMxMSwiaWF0IjoxNzU3NTE0MzExfQ.JGsPRVnaEjQwYz8RCEOvfvFScaSIcXrQ1tomtVq6sYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/category/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzE2NTMxNSwiaWF0IjoxNzU3MTI5MzE1fQ.T2XPqKdyKP6g6B0TgLGZaAFC2q_NMslbzaZiXtcfdVY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Aptitude Practice\",\r\n    \"description\" : \"This quiz category contains questions related to Aptitude\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/category/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzE2NTMxNSwiaWF0IjoxNzU3MTI5MzE1fQ.T2XPqKdyKP6g6B0TgLGZaAFC2q_NMslbzaZiXtcfdVY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cId\": 2,\r\n    \"title\": \"Aptitude Practice\",\r\n    \"description\": \"This quiz category contains questions related to Aptitude Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/category/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzE2NTMxNSwiaWF0IjoxNzU3MTI5MzE1fQ.T2XPqKdyKP6g6B0TgLGZaAFC2q_NMslbzaZiXtcfdVY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/category/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz",
+			"item": [
+				{
+					"name": "Get Quiz",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MDMxMSwiaWF0IjoxNzU3NTE0MzExfQ.JGsPRVnaEjQwYz8RCEOvfvFScaSIcXrQ1tomtVq6sYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/quiz/5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Quiz",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MzY3MiwiaWF0IjoxNzU3NTE3NjcyfQ.lZzTPRYbn7dxKwOwMpgvj6lGqLSX6JNQL9DEQ216XMQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Python Basics\",\r\n    \"maxMarks\" : \"200\",\r\n    \"noOfQuestions\":\"10\",\r\n    \"category\": {\r\n        \"cId\" : 3\r\n    },\r\n    \"description\" : \"This quiz contains questions related to basics of Python\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quiz/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quizzes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MDMxMSwiaWF0IjoxNzU3NTE0MzExfQ.JGsPRVnaEjQwYz8RCEOvfvFScaSIcXrQ1tomtVq6sYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/quiz/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quiz",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MzY3MiwiaWF0IjoxNzU3NTE3NjcyfQ.lZzTPRYbn7dxKwOwMpgvj6lGqLSX6JNQL9DEQ216XMQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"qId\": 4,\r\n    \"title\": \"Java Basics quiz\",\r\n    \"description\": \"This quiz contains questions related to basizs of Java and OOPs\",\r\n    \"maxMarks\": \"200\",\r\n    \"noOfQuestions\": \"20\",\r\n    \"active\": false,\r\n    \"category\": {\r\n        \"cId\": 1,\r\n        \"title\": \":Programming languages\",\r\n        \"description\": \"This quiz category contains questions related to programming languages\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/quiz/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Quiz",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1MDMxMSwiaWF0IjoxNzU3NTE0MzExfQ.JGsPRVnaEjQwYz8RCEOvfvFScaSIcXrQ1tomtVq6sYI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/quiz/5",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"quiz",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Questions API",
+			"item": [
+				{
+					"name": "Get Question",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1NDI2OSwiaWF0IjoxNzU3NTE4MjY5fQ.7El8rCi1jU9qO673mspxLHyOpgGiv_4IVTg8hiDcijM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"qId\": 4,\r\n    \"title\": \"Java Basics quiz\",\r\n    \"description\": \"This quiz contains questions related to basizs of Java and OOPs\",\r\n    \"maxMarks\": \"200\",\r\n    \"noOfQuestions\": \"20\",\r\n    \"active\": false,\r\n    \"category\": {\r\n        \"cId\": 1,\r\n        \"title\": \":Programming languages\",\r\n        \"description\": \"This quiz category contains questions related to programming languages\"\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/question/7",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"question",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Questions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1NDI2OSwiaWF0IjoxNzU3NTE4MjY5fQ.7El8rCi1jU9qO673mspxLHyOpgGiv_4IVTg8hiDcijM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/question/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"question",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Questions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1NDI2OSwiaWF0IjoxNzU3NTE4MjY5fQ.7El8rCi1jU9qO673mspxLHyOpgGiv_4IVTg8hiDcijM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"content\":\"Founder of Java ?\",\r\n    \"image\":\"\",\r\n    \"option1\":\"OOPS\",\r\n    \"option2\":\"Low level language\",\r\n    \"option3\":\"High level language\",\r\n    \"option4\":\"Method\",\r\n    \"answer\": \"Low level language\",\r\n    \"quiz\":{\r\n        \"qId\":\"6\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/question/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"question",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Question'",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1NDI2OSwiaWF0IjoxNzU3NTE4MjY5fQ.7El8rCi1jU9qO673mspxLHyOpgGiv_4IVTg8hiDcijM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quesId\":8,\r\n    \"content\":\"Founder of Python ?\",\r\n    \"image\":\"\",\r\n    \"option1\":\"OOPS\",\r\n    \"option2\":\"Low level language\",\r\n    \"option3\":\"High level language\",\r\n    \"option4\":\"Method\",\r\n    \"answer\": \"Low level language\",\r\n    \"quiz\":{\r\n        \"qId\":\"6\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/question/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"question",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Question",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzU1NDI2OSwiaWF0IjoxNzU3NTE4MjY5fQ.7El8rCi1jU9qO673mspxLHyOpgGiv_4IVTg8hiDcijM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/question/8",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"question",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Questions Of Quiz",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User API",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NjIxMTQwMSwiaWF0IjoxNzU2MTc1NDAxfQ.4oAjZ4XfHDYo-oCkO3xpCNhBhWgaRXG07WeUsRy7EzQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Rishvik\",\r\n    \"password\":\"12345\",\r\n    \"firstName\":\"TRishvik\",\r\n    \"lastName\":\"Reddy\",\r\n    \"email\":\"rishvik@gmail.com\",\r\n    \"phone\":\"1234567890\",\r\n    \"profile\":\"rishvik.jpg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NjI5OTczMCwiaWF0IjoxNzU2MjYzNzMwfQ.2fl9t4bMgZoW9AGY4H9XT520MZ6L1cin8DV3NKRw5Kc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/user/Gopal",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								"Gopal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Reddy\",\r\n    \"password\": \"12345\",\r\n    \"firstName\": \"Manjunatha\",\r\n    \"lastName\": \"K\",\r\n    \"email\": \"k.manjunatha1518@gmail.com\",\r\n    \"phone\": \"9000000000\",\r\n    \"enabled\": true,\r\n    \"profile\": \"default1.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/user/2",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCurrentUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NjI5OTczMCwiaWF0IjoxNzU2MjYzNzMwfQ.2fl9t4bMgZoW9AGY4H9XT520MZ6L1cin8DV3NKRw5Kc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/current-user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"current-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate_Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJHb3BhbCIsImV4cCI6MTc1NzE2NTMxNSwiaWF0IjoxNzU3MTI5MzE1fQ.T2XPqKdyKP6g6B0TgLGZaAFC2q_NMslbzaZiXtcfdVY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Gopal\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/generate-token",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"generate-token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
